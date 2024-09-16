@@ -21,21 +21,21 @@ jobs:
 
     - name: Create addon zip
       run: |
-        zip -r release/SimpleWaypoint-v${{ github.ref_name }}.zip release/SimpleWaypoint/*
+        zip -r release/SimpleWaypoint-${{ github.ref_name }}.zip release/SimpleWaypoint/*
 
     - name: Upload release to GitHub
       uses: actions/upload-artifact@v3
       with:
-        name: SimpleWaypoint-v${{ github.ref_name }}.zip
-        path: release/SimpleWaypoint-v${{ github.ref_name }}.zip
+        name: SimpleWaypoint-${{ github.ref_name }}.zip
+        path: release/SimpleWaypoint-${{ github.ref_name }}.zip
 
     - name: Create GitHub Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: release/SimpleWaypoint-v${{ github.ref_name }}.zip
+        artifacts: release/SimpleWaypoint-${{ github.ref_name }}.zip
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{ github.ref_name }}
-        name: SimpleWaypoint v${{ github.ref_name }}
+        name: SimpleWaypoint ${{ github.ref_name }}
         draft: false
         prerelease: false
 
