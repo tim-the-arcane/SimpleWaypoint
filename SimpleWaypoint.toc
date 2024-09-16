@@ -1,0 +1,6 @@
+## Interface: 100105
+## Title: Simple Waypoint
+## Author: Tim
+## Version: 1.0
+## Notes: Ein einfaches Addon, um Waypoints zu setzen.
+SimpleWaypoint.lua
