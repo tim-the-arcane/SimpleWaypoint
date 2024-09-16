@@ -27,12 +27,12 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: SimpleWaypoint-${{ github.ref_name }}.zip
-          path: release/SimpleWaypoint-${{ github.ref_name }}.zip
+          path: SimpleWaypoint-${{ github.ref_name }}.zip
 
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: release/SimpleWaypoint-${{ github.ref_name }}.zip
+          artifacts: SimpleWaypoint-${{ github.ref_name }}.zip
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
           name: SimpleWaypoint ${{ github.ref_name }}
