@@ -13,15 +13,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Node.js (for WoW TOC file handling)
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-
     - name: Create addon zip
       run: |
         mkdir -p release
-        zip -r release/SimpleWaypoint-v${{ github.ref_name }}.zip SimpleWaypoint
+        # Zip the entire folder for the addon
+        zip -r release/SimpleWaypoint-v${{ github.ref_name }}.zip SimpleWaypoint/*
 
     - name: Upload release to GitHub
       uses: actions/upload-artifact@v3
