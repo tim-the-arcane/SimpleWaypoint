@@ -13,11 +13,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Create addon directory for packaging
+      run: |
+        mkdir -p release/SimpleWaypoint
+        cp SimpleWaypoint.toc release/SimpleWaypoint/
+        cp SimpleWaypoint.lua release/SimpleWaypoint/
+
     - name: Create addon zip
       run: |
-        mkdir -p release
-        # Zip the entire folder for the addon
-        zip -r release/SimpleWaypoint-v${{ github.ref_name }}.zip SimpleWaypoint/*
+        zip -r release/SimpleWaypoint-v${{ github.ref_name }}.zip release/SimpleWaypoint/*
 
     - name: Upload release to GitHub
       uses: actions/upload-artifact@v3
